@@ -31,15 +31,14 @@ export default class Book {
     document.getElementById('author').value = '';
 
     /* REMOVE FUNCTION */
-    function remove() {
+    const remove = () => {
       const seperator = document.getElementById('seperator');
       const bookCard = document.getElementById(`${newBook.index}`);
       bookCard.remove();
       seperator.remove();
-      // seperator.parentNode.removeChild(seperator);
       bookCollection = bookCollection.filter((element) => element !== newBook);
       localStorage.setItem('books', JSON.stringify(bookCollection));
-    }
+    };
 
     document.getElementById(`${newBook.index}`).addEventListener('click', remove);
   }
